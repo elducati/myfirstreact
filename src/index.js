@@ -1,6 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const myfirstelement = <h1>Hello React!</h1>
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {favoritecolor: "red"};
+  }
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({favoritecolor: "yellow"})
+    }, 1000)
+  }
+  render() {
+    return (
+      <h1>My Favorite Color is {this.state.favoritecolor}</h1>
+    );
+  }
+}
 
-ReactDOM.render(myfirstelement, document.getElementById('root'));
+ReactDOM.render(<Header />, document.getElementById('root'));
